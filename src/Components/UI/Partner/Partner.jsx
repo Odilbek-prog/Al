@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Partner.scss";
 import client1 from "../../../assets/AmericanExpress.png";
-import client2 from "../../../assets/AmazonPay.png";
+import client2 from "../../../assets/Amazonpay.png";
 import client3 from "../../../assets/Stripe.png";
 import client4 from "../../../assets/westernunion.png";
 import client5 from "../../../assets/Klarna.png";
