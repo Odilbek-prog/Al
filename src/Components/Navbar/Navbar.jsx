@@ -157,8 +157,8 @@ const Navbar = () => {
             </select>
           </div>
           <hr className="navbar__hrbottom" />
-          <NavLink to={"/signup"} className="navbar__signin">
-            Sign In
+          <NavLink to={"/login"} className="navbar__signin">
+            Log in
           </NavLink>
         </div>
       </div>

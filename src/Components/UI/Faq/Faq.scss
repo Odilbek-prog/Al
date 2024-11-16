@@ -1,0 +1,79 @@
+.faq {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__wrapper {
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+  &__desc {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__accor {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  div.c {
+    position: relative;
+    width: 540px;
+  }
+  input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: 0;
+  }
+  &__accortitle {
+    color: #000;
+    border: 2px solid #686868;
+    border-radius: 10px;
+    padding: 1em;
+    position: relative;
+  }
+  label::before {
+    content: "";
+    display: inline-block;
+    border: 15px solid transparent;
+    border-left: 20px solid rgb(0, 0, 0);
+  }
+  label {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  div.p {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  }
+  div.p p {
+    padding: 2em;
+  }
+  input:checked ~ h3 label::before {
+    border-left: 15px solid transparent;
+    border-top: 20px solid rgb(0, 0, 0);
+    margin-top: 12px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+  }
+  input:checked ~ h3 ~ div.p {
+    max-height: 100px;
+  }
+  a {
+    color: steelblue;
+  }
+}

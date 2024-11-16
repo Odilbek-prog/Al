@@ -1,0 +1,63 @@
+.media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 50px;
+  &__wrapper {
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  &__swiper {
+    width: 100%;
+  }
+  &__play {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3px;
+    background-color: #fff;
+    color: black;
+    transition: all 0.3s;
+    &:hover {
+      color: #fff;
+      background-color: #2198ff;
+    }
+  }
+  &__card {
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    color: #fff;
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: flex-end;
+    background-image: url(../../../assets/media1.png);
+  }
+
+  &__card2 {
+    background-image: url(../../../assets/media2.png);
+  }
+  &__card3 {
+    background-image: url(../../../assets/media3.png);
+  }
+  &__text {
+    width: 145px;
+  }
+}
