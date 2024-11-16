@@ -8,7 +8,7 @@ import rasm4 from "../../../assets/twitter.png";
 
 import leftimg from "../../../assets/team.png";
 
-import "./team.scss";
+import "./Team.scss";
 
 const Team = () => {
   const settings = {
