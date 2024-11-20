@@ -3,51 +3,50 @@ import "./Consul.scss";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
 
 const Consul = () => {
+  const { t } = useTranslation();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success(t("submit"));
+  };
+
   return (
     <div className="consul">
       <ToastContainer />
       <div className="consul__wrapper">
         <div className="consul__left">
-          <h1 className="consul__title">Workshops and Spiritual Development</h1>
-          <p className="consul__text">
-            Participate in our weekly workshops focused on Islamic studies and
-            spiritual growth. These sessions are designed to help you strengthen
-            your connection with faith and acquire essential skills for daily
-            life
-          </p>
+          <h1 className="consul__title">
+            {t("workshops_and_spiritual_development")}
+          </h1>
+          <p className="consul__text">{t("workshops_desc")}</p>
         </div>
         <div className="consul__right">
           <div className="consul__desc">
-            <h1 className="consul__title">Free consultation</h1>
-            <p className="consul__text">
-              Leave your phone number, and we will reach out to provide you with
-              complete information about our courses.
-            </p>
+            <h1 className="consul__title">{t("free_consultation")}</h1>
+            <p className="consul__text">{t("free_consultation_desc")}</p>
           </div>
-          <form className="consul__form" onSubmit={toast.success("success")}>
+          <form className="consul__form" onSubmit={handleSubmit}>
             <input
               type="text"
               className="consul__input"
-              placeholder="Your Name"
+              placeholder={t("name_placeholder")}
               required
             />
             <input
               type="number"
               className="consul__input"
-              placeholder="Your Phone Number"
+              placeholder={t("phone_number_placeholder")}
               required
             />
             <div className="consul__checkbox">
               <input type="checkbox" className="consul__input" required />
-              <label htmlFor="checkbox">
-                I agree to the use of my personal information for consultation
-                purposes.
-              </label>
+              <label htmlFor="checkbox">{t("checkbox_label")}</label>
             </div>
             <NavLink type="submit" className="consul__btn" to={"/"}>
-              Submit
+              {t("submit")}
             </NavLink>
           </form>
         </div>

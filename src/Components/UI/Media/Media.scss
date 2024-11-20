@@ -59,12 +59,10 @@
     &__overlay {
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width: 350px !important;
       padding: 15px;
       color: #fff;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       text-align: left;
 
       p {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Partner.scss";
 import client1 from "../../../assets/AmericanExpress.png";
 import client2 from "../../../assets/Amazonpay.png";
@@ -10,11 +10,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/grid";
 import { Autoplay, Grid } from "swiper/modules";
+import { useTranslation } from "react-i18next";
 
 const Partner = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="partner">
-      <h1 className="partner__title">Our Partners and Clients</h1>
+      <h1 className="partner__title">{t("our_partners_and_clients")}</h1>
       <Swiper
         slidesPerView={5}
         autoplay={{
@@ -31,12 +34,12 @@ const Partner = () => {
       >
         <SwiperSlide>
           <div className="partner__card first__row">
-            <img src={client1} alt="" />
+            <img src={client1} alt={t("client_1")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card">
-            <img src={client1} alt="" />
+            <img src={client1} alt={t("client_1")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -45,7 +48,7 @@ const Partner = () => {
               className="partner__img"
               style={{ paddingTop: "20px" }}
               src={client2}
-              alt=""
+              alt={t("client_2")}
             />
           </div>
         </SwiperSlide>
@@ -55,48 +58,48 @@ const Partner = () => {
               className="partner__img"
               style={{ paddingTop: "20px" }}
               src={client2}
-              alt=""
+              alt={t("client_2")}
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card first__row">
-            <img src={client3} alt="" />
+            <img src={client3} alt={t("client_3")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card">
-            <img src={client3} alt="" />
+            <img src={client3} alt={t("client_3")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card first__row">
-            <img src={client4} alt="" />
+            <img src={client4} alt={t("client_4")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card">
-            <img src={client4} alt="" />
+            <img src={client4} alt={t("client_4")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card first__row">
-            <img src={client5} alt="" />
+            <img src={client5} alt={t("client_5")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card">
-            <img src={client5} alt="" />
+            <img src={client5} alt={t("client_5")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card first__row">
-            <img src={client6} alt="" />
+            <img src={client6} alt={t("client_6")} />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="partner__card">
-            <img src={client6} alt="" />
+            <img src={client6} alt={t("client_6")} />
           </div>
         </SwiperSlide>
       </Swiper>

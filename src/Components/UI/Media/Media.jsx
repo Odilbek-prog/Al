@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import "./Media.scss";
-
 import { FaPlay, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import rasm1 from "../../../assets/media1.png";
 import rasm2 from "../../../assets/media2.png";
 import rasm3 from "../../../assets/media3.png";
 import rasm4 from "../../../assets/media1.png";
+import { useTranslation } from "react-i18next";
 
 const mediaData = [
-  { image: rasm1, title: "Why Islamic finance?" },
-  { image: rasm2, title: "What makes Islamic finance unique?" },
-  { image: rasm3, title: "How is risk managed in Islamic?" },
-  { image: rasm4, title: "How is risk managed in Islamic?" },
+  { image: rasm1, title: "why_islamic_finance" },
+  { image: rasm2, title: "what_makes_islamic_finance_unique" },
+  { image: rasm3, title: "how_is_risk_managed_in_islamic" },
+  { image: rasm4, title: "how_is_risk_managed_in_islamic" },
 ];
 
 const Ourmedia = () => {
+  const { t } = useTranslation();
   const itemsPerPage = 3; // Ekranda ko'rsatiladigan kartalar soni
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -45,10 +46,12 @@ const Ourmedia = () => {
     <div className="ourmedia">
       <div className="container">
         <div className="ourmedia__container">
-          <h1 className="ourmedia__title">Our Media</h1>
+          <h1 className="ourmedia__title">{t("our_media")}</h1>
           <div className="ourmedia__slider">
             <div className="ourmedia__flex">
-              <h3 className="ourmedia__slider__title">Our media showcase</h3>
+              <h3 className="ourmedia__slider__title">
+                {t("our_media_showcase")}
+              </h3>
               <div className="ourmedia__controls">
                 <button className="ourmedia__control left" onClick={handlePrev}>
                   <FaArrowLeft />
@@ -72,11 +75,11 @@ const Ourmedia = () => {
                   transition: "transform 0.5s ease",
                 }}
               >
-                {mediaData.map((item, index) => (
+                {currentItems.map((item, index) => (
                   <div className="ourmedia__card" key={index}>
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.image} alt={t(item.title)} />
                     <div className="ourmedia__card__overlay">
-                      <p>{item.title}</p>
+                      <p>{t(item.title)}</p>
                       <button className="ourmedia__playButton">
                         <FaPlay />
                       </button>
