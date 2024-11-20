@@ -1,165 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Media.scss";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay } from "swiper/modules";
 
-const Media = () => {
+import { FaPlay, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import rasm1 from "../../../assets/media1.png";
+import rasm2 from "../../../assets/media2.png";
+import rasm3 from "../../../assets/media3.png";
+import rasm4 from "../../../assets/media1.png";
+
+const mediaData = [
+  { image: rasm1, title: "Why Islamic finance?" },
+  { image: rasm2, title: "What makes Islamic finance unique?" },
+  { image: rasm3, title: "How is risk managed in Islamic?" },
+  { image: rasm4, title: "How is risk managed in Islamic?" },
+];
+
+const Ourmedia = () => {
+  const itemsPerPage = 3; // Ekranda ko'rsatiladigan kartalar soni
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Sahifalar sonini hisoblash
+  const totalPages = Math.ceil(mediaData.length / itemsPerPage);
+
+  // Oldingi sahifaga o'tish
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? totalPages - 1 : prevIndex - 1
+    );
+  };
+
+  // Keyingi sahifaga o'tish
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === totalPages - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  // Ko'rsatiladigan elementlarni olish
+  const currentItems = mediaData.slice(
+    currentIndex * itemsPerPage,
+    (currentIndex + 1) * itemsPerPage
+  );
+
   return (
-    <div className="media">
-      <div className="media__wrapper">
-        <h1 className="media__title">Our Media</h1>
-        <div className="media__bottom">
-          <h2 className="media__cardtitle">Our media showcase</h2>
-          <Swiper
-            slidesPerView={3}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
-            spaceBetween={20}
-            modules={[Autoplay]}
-            className="media__swiper"
-          >
-            <SwiperSlide>
-              <div className="media__card">
-                <p className="media__text">Why Islamic finance?</p>
-                <div className="media__play">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-play"
-                  >
-                    <polygon points="5 3, 19 12, 5 21"></polygon>
-                  </svg>
-                </div>
+    <div className="ourmedia">
+      <div className="container">
+        <div className="ourmedia__container">
+          <h1 className="ourmedia__title">Our Media</h1>
+          <div className="ourmedia__slider">
+            <div className="ourmedia__flex">
+              <h3 className="ourmedia__slider__title">Our media showcase</h3>
+              <div className="ourmedia__controls">
+                <button className="ourmedia__control left" onClick={handlePrev}>
+                  <FaArrowLeft />
+                </button>
+                <button
+                  className="ourmedia__control right"
+                  onClick={handleNext}
+                >
+                  <FaArrowRight />
+                </button>
               </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="media__card media__card2">
-                <p className="media__text">
-                  What makes Islamic finance unique?
-                </p>
-                <div className="media__play">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-play"
-                  >
-                    <polygon points="5 3, 19 12, 5 21"></polygon>
-                  </svg>
-                </div>
+            </div>
+            <div className="ourmedia__cards">
+              {/* Ekranda 3 ta karta va animatsiya bilan o'zgarishni ta'minlash */}
+              <div
+                className="ourmedia__cards__wrapper"
+                style={{
+                  transform: `translateX(-${
+                    (currentIndex * 100) / itemsPerPage
+                  }%)`,
+                  transition: "transform 0.5s ease",
+                }}
+              >
+                {mediaData.map((item, index) => (
+                  <div className="ourmedia__card" key={index}>
+                    <img src={item.image} alt={item.title} />
+                    <div className="ourmedia__card__overlay">
+                      <p>{item.title}</p>
+                      <button className="ourmedia__playButton">
+                        <FaPlay />
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="media__card media__card3">
-                <p className="media__text">
-                  How is risk managed in Islamic finance?
-                </p>
-                <div className="media__play">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-play"
-                  >
-                    <polygon points="5 3, 19 12, 5 21"></polygon>
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="media__card">
-                <p className="media__text">Why Islamic finance?</p>
-                <div className="media__play">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-play"
-                  >
-                    <polygon points="5 3, 19 12, 5 21"></polygon>
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="media__card media__card2">
-                <p className="media__text">
-                  What makes Islamic finance unique?
-                </p>
-                <div className="media__play">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-play"
-                  >
-                    <polygon points="5 3, 19 12, 5 21"></polygon>
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="media__card media__card3">
-                <p className="media__text">
-                  How is risk managed in Islamic finance?
-                </p>
-                <div className="media__play">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="icon-play"
-                  >
-                    <polygon points="5 3, 19 12, 5 21"></polygon>
-                  </svg>
-                </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Media;
+export default Ourmedia;

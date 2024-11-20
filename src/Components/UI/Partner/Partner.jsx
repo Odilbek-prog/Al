@@ -18,7 +18,7 @@ const Partner = () => {
       <Swiper
         slidesPerView={5}
         autoplay={{
-          delay: 200,
+          delay: 1000,
           disableOnInteraction: false,
         }}
         grid={{
