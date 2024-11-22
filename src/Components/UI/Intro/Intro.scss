@@ -1,13 +1,12 @@
 .intro {
-  width: 100%;
+  width: 100% !important;
   display: flex;
-  justify-content: center;
+  justify-content: center !important;
   background-color: #009688;
   padding: 160px 0;
   &__wrapper {
     width: 1100px;
-    display: flex;
-    justify-content: space-between;
+    display: flex !important;
   }
   &__title {
     display: flex;
@@ -47,13 +46,13 @@
     right: 20px;
   }
   &__right {
-    position: relative;
+    position: relative !important;
     width: 600px;
   }
   &__student {
     position: absolute;
-    top: -80px;
     width: 200px;
+    top: -80px;
   }
   &__img {
     position: absolute;
